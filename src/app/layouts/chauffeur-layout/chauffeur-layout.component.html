@@ -1,0 +1,232 @@
+<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    <br>
+    <br>
+    <ul class="c-sidebar-nav">
+
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="#">
+                <svg class="c-sidebar-nav-icon">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-speedometer"></use>
+  </svg> Dashboard
+            </a>
+        </li>
+        <li class="c-sidebar-nav-title"></li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="#">
+                <svg class="c-sidebar-nav-icon">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-drop"></use>
+  </svg> Historique</a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="#">
+                <svg class="c-sidebar-nav-icon">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-pencil"></use>
+  </svg>Profile</a>
+        </li>
+        <li class="c-sidebar-nav-title">Components</li>
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+                <svg class="c-sidebar-nav-icon">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-puzzle"></use>
+  </svg> Liste de Commende</a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Breadcrumb</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Cards</a></li>
+
+
+            </ul>
+        </li>
+      
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+                <svg class="c-sidebar-nav-icon">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-bell"></use>
+  </svg> Notifications</a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Alerts</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Badge</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Modals</a></li>
+            </ul>
+        </li>
+       
+        <li class="c-sidebar-nav-divider"></li>
+        <li class="c-sidebar-nav-title">Extras</li>
+        <li class="c-sidebar-nav-item">
+          <a class="c-sidebar-nav-link" (click)="logout()">
+              <svg class="c-sidebar-nav-icon">
+                <use xlink:href="assets/admin/icons/svg/free.svg#cil-account-logout"></use>
+</svg> Déconnexion</a>
+      </li>
+      
+    </ul>
+    <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
+</div>
+<div class="c-wrapper c-fixed-components">
+    <header class="c-header c-header-light c-header-fixed c-header-with-subheader">
+        <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar" data-class="c-sidebar-show">
+  <svg class="c-icon c-icon-lg">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-menu"></use>
+  </svg>
+  </button>
+        <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
+  <svg class="c-icon c-icon-lg">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-menu"></use>
+  </svg>
+  </button>
+       
+        <ul class="c-header-nav ml-auto mr-4">
+            <li class="c-header-nav-item d-md-down-none mx-2">
+                <a class="c-header-nav-link" href="#">
+                    <svg class="c-icon">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-bell"></use>
+  </svg></a>
+            </li>
+            <li class="c-header-nav-item d-md-down-none mx-2">
+                <a class="c-header-nav-link" href="#">
+                    <svg class="c-icon">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-list-rich"></use>
+  </svg></a>
+            </li>
+            <li class="c-header-nav-item d-md-down-none mx-2">
+                <a class="c-header-nav-link" href="#">
+                    <svg class="c-icon">
+  <use xlink:href="assets/admin/icons/svg/free.svg#cil-envelope-open"></use>
+  </svg></a>
+            </li>
+            <li class="c-header-nav-item dropdown">
+                <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <div class="c-avatar"><img class="c-avatar-img" src="" alt=""></div>
+                </a>
+               
+            </li>
+        </ul>
+
+    </header>
+    <div class="c-body">
+        <main class="c-main">
+            <div class="container-fluid">
+                <div class="fade-in">
+
+                    <router-outlet></router-outlet>
+
+
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+</div>
+
+<!-- <div class="wrapper">
+   
+<nav id="sidebar" [ngClass]="status ? 'hide' : 'show'">
+    <div id="dismiss" (click)="clickEvent2()">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="sidebar-header">
+        <h3>Bootstrap Sidebar</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <p>Dummy Heading</p>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a href="#">Home 1</a>
+                </li>
+                <li>
+                    <a href="#">Home 2</a>
+                </li>
+                <li>
+                    <a href="#">Home 3</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">About</a>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Portfolio</a>
+        </li>
+        <li>
+            <a href="#">Contact</a>
+        </li>
+    </ul>
+</nav>
+
+
+<div id="content">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="clickEvent()">
+                <i class="fas fa-align-left"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Page</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h2>Collapsible Sidebar Using Bootstrap 5</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div class="line"></div>
+
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div class="line"></div>
+
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div class="line"></div>
+
+    <h3>Lorem Ipsum Dolor</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+</div>
+
+<div class="overlay" [ngClass]="status ? 'active' : ''"></div> -->
+
+

@@ -1,0 +1,1100 @@
+ <form #f="ngForm" (ngSubmit)="registerChauf(f)" class="login100-form validate-form">
+                <span class="login100-form-title p-b-26">
+            <img class="mb-4" src="assets/app/img/beebeep.png" alt="" width="70" height="70">
+          </span>
+             <div class="w3-row-padding">
+                <div class="form-group">
+                    <input type="text" name="nom" required #nom="ngModel" ngModel/>
+
+                    <label>Nom</label>
+                </div>
+                <!-- nom validation end here -->
+                <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-feedback">
+                    <div class="lert" *ngIf="nom.errors?.['required']">
+                        Veuillez choisir un nom.
+                    </div>
+                </div>
+
+                <!--END NOM-->
+                <div class="form-group">
+                    <input type="text" name="prenom" required #prenom="ngModel" ngModel/>
+                    <label>Prenom</label>
+                </div>
+                <!-- nom validation end here -->
+                <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-feedback">
+                    <div class="lert" *ngIf="prenom.errors?.['required']">
+                        Veuillez choisir prenom.
+                    </div>
+                </div>
+              </div>
+
+
+              <div class="input-box">
+                <span class="details">Full Name</span>
+                <input type="text" placeholder="Enter your name" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Username</span>
+                <input type="text" placeholder="Enter your username" required>
+              </div>
+                <!--END NOM-->
+                <div class="form-group">
+                    <input type="text" name="tele" required #tele="ngModel" ngModel/>
+                    <label>Telephone</label>
+                </div>
+                <!-- nom validation end here -->
+                <div *ngIf="tele.invalid && (tele.dirty || tele.touched)" class="alert alert-feedback">
+                    <div class="lert" *ngIf="tele.errors?.['required']">
+                        Veuillez choisir un numéro de télèphone.
+                    </div>
+                </div>
+                <!--END num tele-->
+
+
+                <div class="form-group">
+                    <input type="text" name="cin" required #cin="ngModel" ngModel/>
+                    <label>N°carte CIN</label>
+                </div>
+                <!-- nom validation end here -->
+                <div *ngIf="cin.invalid && (cin.dirty || cin.touched)" class="alert alert-feedback">
+                    <div class="lert" *ngIf="cin.errors?.['required']">
+                        Veuillez choisir un numéro cin.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="email" required #email="ngModel" ngModel/>
+                    <label>E-mail</label>
+                </div>
+                <!-- nom validation end here -->
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-feedback">
+                    <div class="lert" *ngIf="email.errors?.['required']">
+                        Veuillez choisir adresse email
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-row">
+                    <input id="homme" type="radio" value="homme" name="gendre" ngModel required/>
+                    <label for="homme">Homme</label>
+                    <input id="femme" type="radio" value="femme" name="gendre" ngModel required/>
+                    <label for="femme">Femme</label>
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <input type="password" name="password" required #password="ngModel" ngModel/>
+                    <label>Mot de passe</label>
+                </div>
+                <!-- nom validation end here -->
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-feedback">
+                    <div class="lert" *ngIf="password.errors?.['required']">
+                        Veuillez choisir le mot de passe.
+                    </div>
+                </div>
+                <!--END NOM-->
+
+                <div class="lert" *ngIf="messageError">
+                    {{messageError}}
+                </div>
+
+                <button type="submit" class="btn">Suivanter</button>
+
+                <div class="text-center p-t-115">
+                    <span class="txt1">Vous avez déjà un compte?</span>
+                    <a class="txt2" routerLink="/chauffeur/login">Connectez-vous</a>
+                </div>
+
+
+
+
+
+
+            </form>
+
+
+
+            /////// voiture
+            <!-- <div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="text-center">
+                <div class="title">Entrez les informations de<br> votre véhicule</div>
+            </div><br>
+            <form #f="ngForm" (ngSubmit)="ajouterVoiture(f)" class="login100-form validate-form">
+                <span class="login100-form-title p-b-26">
+          -<img class="mb-4" src="assets/app/img/beebeep.png" alt="" width="70" height="70">-->
+        </span>
+        <div class="form-group">
+            <input type="text" name="marque" required #marque="ngModel" ngModel/>
+            <label>Marque</label>
+        </div>
+        <!-- nom validation end here -->
+        <div *ngIf="marque.invalid && (marque.dirty || marque.touched)" class="alert alert-feedback">
+            <div class="lert" *ngIf="marque.errors?.['required']">
+                Veuillez ajouter marque.
+            </div>
+        </div>
+        <!--END NOM-->
+        <div class="form-group">
+            <input type="text" name="model" required #model="ngModel" ngModel/>
+            <label>Modèles</label>
+        </div>
+        <!-- nom validation end here -->
+        <div *ngIf="model.invalid && (model.dirty || model.touched)" class="alert alert-feedback">
+            <div class="lert" *ngIf="model.errors?.['required']">
+                Veuillez choisir un model.
+            </div>
+        </div>
+        <!--END NOM-->
+        <div class="form-group">
+            <input type="number" name="nbr_place" required #nbr_place="ngModel" ngModel/>
+            <label>Nombre de place</label>
+        </div>
+        <!-- nom validation end here -->
+        <div *ngIf="nbr_place.invalid && (nbr_place.dirty || nbr_place.touched)" class="alert alert-feedback">
+            <div class="lert" *ngIf="nbr_place.errors?.['required']">
+                Ajouter place.
+            </div>
+        </div>
+        <!--END num tele-->
+
+
+        <div class="form-group">
+            <input type="text" name="couleur" required #couleur="ngModel" ngModel/>
+            <label>Couleur</label>
+        </div>
+        <!-- nom validation end here -->
+        <div *ngIf="couleur.invalid && (couleur.dirty || couleur.touched)" class="alert alert-feedback">
+            <div class="lert" *ngIf="couleur.errors?.['required']">
+                Veuillez choisir couleur.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="num_serie" required #num_serie="ngModel" ngModel/>
+            <label>N° Série</label>
+        </div>
+        <!-- nom validation end here -->
+        <div *ngIf="num_serie.invalid && (num_serie.dirty || num_serie.touched)" class="alert alert-feedback">
+            <div class="lert" *ngIf="num_serie.errors?.['required']">
+                Ajouter un serie
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="text" name="statut" required #statut="ngModel" ngModel/>
+            <label>Statut</label>
+        </div>
+        <!-- nom validation end here -->
+        <div *ngIf="statut.invalid && (statut.dirty || statut.touched)" class="alert alert-feedback">
+            <div class="lert" *ngIf="statut.errors?.['required']">
+                Veuillez Statut
+            </div>
+        </div>
+        <br>
+
+        <div class="form-row">
+            <ul>
+                <li><input type="radio" name="test" id="cb1" />
+                    <label for="cb1"><img src="http://lorempixel.com/100/100" /></label>
+                </li>
+                <li><input type="radio" name="test" id="cb2" />
+                    <label for="cb2"><img src="assets/app/img/beebeep.png" alt="" width="30" height="30"/></label>
+                </li>
+            </ul>
+            <input type="radio" id="transfert" value="transfert" name="type_vehicules" ngModel required/>
+            <label for="transfert">Transfert</label>
+            <input id="vtc" type="radio" value="vtc" name="type_vehicules" ngModel required/>
+            <label for="vtc">VTC</label>
+            <input id="taxi" type="radio" value="taxi" name="type_vehicules" ngModel required/>
+            <label for="taxi">Taxi</label>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <input type="text" name="cout_km" required #cout_km="ngModel" ngModel/>
+            <label>Coût KM</label>
+        </div>
+
+        <!-- cout validation end here -->
+        <div *ngIf="cout_km.invalid && (cout_km.dirty || cout_km.touched)" class="alert alert-feedback">
+            <div class="lert" *ngIf="cout_km.errors?.['required']">
+                Veuillez choisir le cout KM
+            </div>
+        </div>
+        <!--END
+
+        <div class="lert" *ngIf="messageError">
+            {{messageError}}
+        </div>-->
+
+        <button type="submit" class="btn">Valider</button>
+
+
+    </form>
+</div>
+</div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////
+<!-- <div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+
+      <div class="text-center">
+        <span class="login100-form-title p-b-26">
+          <img class="mb-4" src="assets/app/img/beebeep.png" alt="" width="90" height="100">
+        </span>
+        <div class="title">Créer votre compte Chauffeur</div>
+        <p> Attention il n'y aura pas de retour en arriére, votre marque sera officialement sur la voie de succès.</p>
+      </div><br><br>
+      <div class="content">
+
+
+        <form [formGroup]="stepOne"  class="login100-form validate-form">
+   <!-- progressbar -->
+   <ul id="progressbar">
+    <li [ngClass]="step>=1 ? 'active ' : 'inactive'">Personal Details</li>
+    <li [ngClass]="step>=2 ? 'active' : 'inactive'">Social Profiles</li>
+    <li [ngClass]="step==3 ? 'active' : 'inactive'">Account Setup</li>
+</ul>
+<!-- fieldsets -->
+       <div *ngIf="step == 1" formGroupName="stepOne">
+
+         <div class="user-details">
+            <div class="input-box">
+              <input type="text" placeholder="Nom" formControlName="nom" />
+            </div>
+            <div class="input-box">
+              <!-- <span class="details">Prénom</span> -->
+              <input type="text" placeholder="Prénom" formControlName="prenom"/>
+            </div>
+
+            <div class="input-box">
+              <input type="tel" name="tele" placeholder="Télèphone" formControlName="tele"/>
+            </div>
+
+            <div class="input-box">
+              <!-- <span class="details">E-mail</span> -->
+              <input type="text" placeholder="E-mail.." name="email" formControlName="email" />
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Adresse.." name="emplacement" formControlName="emplacement"/>
+            </div>
+
+            <div class="input-box">
+              <- <span class="details">Mot de passe</span> -
+              <input type="password" placeholder="Mot de passe" name="password" formControlName="password"/>
+            </div>
+         </div>
+
+
+         <div class="gender-details">
+            <input id="dot-1" type="radio" value="homme" formControlName="gendre"/>
+            <input id="dot-2" type="radio" value="femme" name="gendre" formControlName="gendre" />
+            <span class="gender-title">Gender</span>
+            <div class="category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Homme</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Femme</span>
+              </label>
+            </div>
+          </div>
+
+          <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+        </div>
+
+
+
+
+        </form>
+      <form [formGroup]="stepTow">
+        <div *ngIf="step == 2" formGroupName="stepTow">
+
+         <h1 class="text-center">Information de vehicule</h1>
+
+
+          <div class="user-details">
+
+            <div class="input-box">
+              <!-- <span class="details">Marque</span> -->
+              <input type="text" placeholder="Marque" name="marque" formControlName="marque"/>
+            </div>
+
+            <div class="input-box">
+              <!-- <span class="details">Modél</span> -->
+              <input type="text" placeholder="Modél.." name="model" formControlName="model" />
+
+            </div>
+
+            <div class="input-box">
+              <!-- <span class="details">N°place</span> -->
+              <input type="number" placeholder="Number place" name="nbr_place" formControlName="nbr_place" />
+
+            </div>
+
+
+            <div class="form-group">
+              <!-- <span class="details">Couleur</span> -->
+              <select  placeholder="Couleur.."formControlName="colour">
+                <option value="">Selection Type</option>
+                 <option value="rouge">Rouge</option>
+                 <option value="noir">Noir</option>
+                 <option value="blance">Blance</option>
+                 <option value="blue">Bleue</option>
+                 <option value="grey">Grey</option>
+                 <option value="jeune">Jeune</option>
+           </select>
+
+            </div>
+
+
+            <div class="input-box">
+              <!-- <span class="details">N°Série</span> -->
+              <input type="text" placeholder="N°Série.." name="num_serie" formControlName="num_serie"/>
+
+            </div>
+
+
+            <div class="input-box">
+              <!-- <span class="details">Annee</span> -->
+              <input type="text" placeholder="Annee.." name="annee" formControlName="annee"/>
+            </div>
+
+
+            <div class="input-box">
+              <!-- <span class="details">Statut</span> -->
+              <input type="text" placeholder="Statut" name="statut" formControlName="statut"/>
+
+            </div>
+
+
+            <div class="input-box">
+              <!-- <span class="details">Montant</span> -->
+              <input type="number" placeholder="Montant" name="cout_km" formControlName="cout_km" />
+
+            </div>
+
+
+          </div>
+          <div class="gender-details">
+
+            <input id="taxi" type="radio" value="Taxi" name="type_vehicules" formControlName="type_vehicules" />
+            <input id="vtc" type="radio" value="vtc" name="type_vehicules" formControlName="type_vehicules" />
+            <input id="transfert" type="radio" value="transfert" formControlName="type_vehicules"  />
+            <span class="gender-title">Type de Véhicule</span>
+
+            <div class="category">
+              <label for="taxi">
+                <span class="dot one"></span>
+                <span class="gender">Taxi</span>
+              </label>
+              <label for="vtc">
+                <span class="dot two"></span>
+                <span class="gender">VTC</span>
+              </label>
+              <label for="transfert">
+                <span class="dot three"></span>
+                <span class="gender">Transfert</span>
+              </label>
+            </div>
+          </div>
+          <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+          <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+        
+        </div>
+
+      </form>
+
+    <form [formGroup]="stepThre">
+       <div *ngIf="step == 3" formGroupName="stepThre">
+          <h1 class="text-center">Télécharger des documents</h1>
+          <hr/><br>
+          <div class="user-details">
+
+            <div class="input-box">
+              <span class="details"> N°Carte Cin</span>
+              <input type="number" placeholder="Identicication Number" name="cinNum" formControlName="cinNum" />
+            </div>
+
+            <div class="input-box">
+              <span class="details">Expire Date</span>
+              <input type="date" placeholder="jj/mm/aaaa" name="dateCin" formControlName="dateCin" />
+
+            </div>
+
+            <div class="input-box">
+              <span class="details">Image Cin</span>
+              <input type="file" (change)= "UploadImageCin($event)" name="imageCin" formControlName="imageCin"/>
+
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Permis Image</span>
+              <input type="file" (change)= "UploadImagePermis($event)" name="imagePermis" formControlName="imagePermis" />
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Date Expert</span>
+              <input type="date" placeholder="Date.." name="permidate" formControlName="permidate" />
+            </div>
+
+            <div class="input-box">
+              <span class="details">N° Permis</span>
+              <input type="text" placeholder="Idetifier number" name="numPermis" formControlName="numPermis"/>
+
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Assurance</span>
+              <input type="number" placeholder="Identification Number.." name="numAss" formControlName="numAss"/>
+            </div>
+
+
+
+            <div class="input-box">
+              <span class="details">Image Assurance</span>
+              <input type="file" (change)= "UploadImageAss($event)" name="imageAss" formControlName="imageAss"/>
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Date Assurance</span>
+              <input type="date"  name="dateAss" formControlName="dateAss"/>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Badge Taxi</span>
+              <input type="number"  name="numBadg" formControlName="numBadg" />
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Date</span>
+              <input type="date" placeholder="date" name="dateBadg" formControlName="dateBadg" />
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Image Badge</span>
+              <input type="file"  (change)= "UploadImageBadg($event)" name="imageBadg" formControlName="imageBadg" />
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Carte Circulation</span>
+              <input type="number" placeholder=".." name="numCartCir" formControlName="numCartCir" />
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Date</span>
+              <input type="date"  name="dateCartCir" formControlName="dateCartCir" />
+            </div>
+
+            <div class="input-box">
+              <span class="details">Image</span>
+              <input type="file" name="imageCartCir" (change)= "UploadImageCart($event)" formControlName="imageCartCir" />
+            </div>
+          </div>
+
+      </div>
+          <!-- <div class="button"> <input type="submit" value="Register" (click)="registerChauf()"></div> -->
+
+          <input (click)="previous()" type="submit" name="previous" class="previous action-button-previous" value="Previous"/>
+              <br><br>
+          
+          <input  (click)="next()" type="submit" name="next" class="next action-button" value="Next"/>
+         
+
+    </form>
+
+
+
+
+        <div class="text-center p-t-115">
+          <span class="txt1">Vous avez déjà un compte?</span>
+          <a class="txt2" routerLink="/chauffeur/login">Connectez-vous</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+ // cvvv
+
+ /* 
+
+a {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff70b;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0px;
+}
+
+p {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+}
+
+ul,
+li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+textarea {
+    outline: none;
+    border: none;
+}
+
+iframe {
+    border: none !important;
+}
+
+.txt1 {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+.txt2 {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-login100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #e9e9e9;
+}
+
+.wrap-login100 {
+    width: 950px;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 77px 55px 33px 55px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.login100-form {
+    width: 100%;
+}
+
+.login100-form-title {
+    display: block;
+    font-family: Poppins-Bold;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+    color: grey;
+}
+
+.login100-form-title i {
+    font-size: 60px;
+}
+
+.wrap-input100 {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 37px;
+}
+
+.input100 {
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    padding: 0 5px;
+}
+
+.container-login100-form-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 13px;
+}
+
+.wrap-login100-form-btn {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.login100-form-btn {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+}
+
+.wrap-login100-form-btn:hover .login100-form-bgbtn {
+    left: 0;
+}
+
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 576px) {
+    .wrap-login100 {
+        padding: 77px 15px 33px 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .alert-validate::before {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+/*[ PADDING ]
+///////////////////////////////////////////////////////////
+*/
+
+.p-t-115 {
+    padding-top: 50px;
+}
+
+.p-b-26 {
+    padding-bottom: 26px;
+}
+
+.p-b-48 {
+    padding-bottom: 48px;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.lert {
+    /*display: none;*/
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+
+/*/*/
+
+.form-group {
+    position: relative;
+    padding: 20px 0;
+    margin: 20px 0 12px 0;
+    /* justify-content: space-between; */
+    width: 300px;
+    max-width: 100%;
+
+
+}
+
+.form-group input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 0;
+    display: block;
+    width: 100%;
+
+
+
+}
+
+.form-group label {
+    color: #9e9e9e;
+    font-size: 16px;
+    font-weight: 100;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    transform: translateY(30px);
+    transition: all 0.2s ease-in-out;
+    left: 0px;
+}
+
+.form-group input:valid,
+.form-group input:focus {
+    border-bottom-color: #e9c70c;
+    outline: none;
+}
+
+.form-group input:valid+label,
+.form-group input:focus+label {
+    color: #000000;
+    font-size: 14px;
+    transform: translateY(0);
+}
+
+.btn {
+    background-color: #FFD700;
+    border: 2px solid #FFD700;
+    border-radius: 24px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px 0;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #FFA500;
+    border: 2px solid #FFA500;
+}
+
+.btn:active {
+    border-color: #fff;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+
+/*/* button radio*/
+
+input[type="radio"] {
+    opacity: 0;
+}
+
+input[type="radio"]:checked+label:before,
+input[type="radio"]+label:before {
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    display: block;
+    border: .125rem solid #aaa;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: -1.5rem;
+}
+
+input[type="radio"]:checked+label:before {
+    box-shadow: .125rem .125rem 0 #fff inset, -.125rem -.125rem 0 #fff inset, -.125rem .125rem 0 #fff inset, .125rem -.125rem 0 #fff inset, .3rem .3rem 0 #aaa inset, -.5rem -.5rem 0 #bbb inset;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 .5rem;
+}
+
+html {
+    font-size: 16px;
+    padding: 30px;
+    line-height: 1.2rem;
+}
+
+
+/*/*/
+
+[type="file"] {
+    /* Style the color of the message that says 'No file chosen' */
+    color: #878787;
+}
+
+[type="file"]::-webkit-file-upload-button {
+    background: #FFD700;
+    border: 2px solid#FFD700;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    outline: none;
+    padding: 10px;
+    text-transform: uppercase;
+    transition: all 1s ease;
+}
+
+[type="file"]::-webkit-file-upload-button:hover {
+    background: #fff;
+    border: 2px solid #535353;
+    color: #000;
+} */
+
+
+/* GENERAL STYLING OF PAGE — NOT APPLICABLE TO EXAMPLE */
+
+
+
+
+
+
+
+
+/****/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:"Lucida Console", "Courier New", monospace;
+}
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #FFD700	 0%, #FFA500 100%);
+}
+.container{
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #FFD700	 0%, #FFA500 100%);
+}
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input{
+  /* height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease; */
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  color: #333;
+  font-size: 16px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+
+
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #FFA500;
+}
+ form .gender-details .gender-title{
+  font-size: 10px;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 80%;
+   margin: 14px 0 ;
+   justify-content: space-between;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #FFA500;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ #dot-3:checked ~ .category label .three{
+
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+ form .button{
+   height: 45px;
+   margin: 35px 0
+ }
+ form .button input{
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: linear-gradient(135deg, #FFD700	 0%, #FFA500 100%);
+ }
+ form .button input:hover{
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, #FFD700	 0%, #FFA500 100%);
+  }
+ @media(max-width: 584px){
+ .container{
+  max-width: 100%;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  }
+  @media(max-width: 459px){
+  .container .content .category{
+    flex-direction: column;
+  }
+} */

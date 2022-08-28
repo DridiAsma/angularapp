@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <form (ngSubmit)="ajouterNotification()">
+                <div class="card-header">
+                    <h4>Envoyer une notification</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Titre</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="text" class="form-control" required  name="titre" [(ngModel)]="notifications.titre">
+                        </div>
+                        <!-- <div *ngIf="titre.invalid && (titre.dirty || titre.touched)" class="alert alert-danger">
+
+                            <div *ngIf="titre.errors?.['required']">
+                                telephone is required.
+                            </div>
+
+                        </div> -->
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Type de notification</label>
+                        <div class="col-sm-12 col-md-7">
+                            <select class="form-control selectric" required  name="notify_type" [(ngModel)]="notifications.notify_type">
+                                <option value="chauffeur">Chauffeurs</option>
+                                <option value="client">Client</option>
+                            </select>
+                        </div>
+                        <!-- <div *ngIf="notify_type.invalid && (notify_type.dirty || notify_type.touched)" class="alert alert-danger">
+                            <div *ngIf="notify_type.errors?.['required']">
+                                le noyu de carte cin is required.
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Message</label>
+                        <div class="col-sm-12 col-md-7">
+                            <textarea class="form-control" required  name="description" [(ngModel)]="notifications.description"></textarea>
+                            <span class="error"></span>
+
+                        </div>
+                        <!-- <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+                            <div *ngIf="description.errors?.['required']">
+                                le numero de carte cin is required.
+                            </div>
+
+                        </div> -->
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Date</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="date" class="form-control" name="date" [(ngModel)]="notifications.date">
+                        </div>
+
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="file" class="form-control" required name="image" (change)="imageUpload($event)">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
+                        <div class="col-sm-12 col-md-7">
+                            <select class="form-control selectric" required name="satuts" [(ngModel)]="notifications.status">
+                             <option value="active">Active</option>
+                              <option value="inactive">Inactive</option>
+                           </select>
+                        </div>
+                        <!-- <div *ngIf="satuts.invalid && (satuts.dirty || satuts.touched)" class="alert alert-danger">
+
+                            <div *ngIf="satuts.errors?.['required']">
+                                lestaut de carte cin is required.
+                            </div>
+                        </div> -->
+                        <br><br><br>
+                        <div class="form-group row mb-4">
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                            <div class="col-sm-12 col-md-7">
+                                <button class="btn btn-primary" type="submit">Envoyer </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- [ inverse-table ] start -->
+
+<div class="card">
+    <div class="card-header">
+        <h5>Liste Notifications</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let notfi of notifications">
+                        <th scope="row">{{ notfi.id }}</th>
+                        <td>{{notfi.titre}}</td>
+                        <td>{{notfi.date}}</td>
+                        <td>{{notfi.description}}</td>
+                        <td class="text-center">
+                            <div class="alert alert-success" *ngIf="notfi.satuts" role="alert">
+                                Active
+                            </div>
+                            <div class="alert alert-warning" *ngIf="!notfi.satuts" role="alert">
+                                InActive
+                            </div>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" (click)="detailnotif(notfi.id)"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="btn btn-danger btn-action" (click)="supNotification(notfi.id)" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

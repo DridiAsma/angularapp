@@ -1,0 +1,108 @@
+
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <form (ngSubmit)="ajouterTypeV()">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">Ajouter un type de voiture</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Libelle </label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="text" class="form-control" name="libelle" formControlName="libelle">
+                        </div>
+                      
+
+                        <div *ngIf="submitted && f['libelle'].errors" class="invalid-feedback">
+
+                            <div *ngIf="f['libelle'].errors?.['required']">
+                                le libelle is required.
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Montant</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="text" formControlName="montant" class="form-control" id="montant" name="montant">
+                        </div>
+                      
+                        <div *ngIf="submitted && f['montant'].errors" class="invalid-feedback">
+                            <div *ngIf="f['montant'].errors?.[ 'required']">
+                                le libelle is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="file" class="form-control" formControlName="image" id="image" name="image" (change)="uploadImage($event)">
+                        </div>
+                      
+                        <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
+                            <div *ngIf="f['image'].errors?.[ 'required']">Image is required</div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                        <div class="col-sm-12 col-md-7 ">
+                            <button type="submit" class="btn btn-primary"> Enregister </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Tableau de liste-->
+
+<div class="card ">
+    <div class="card-header">
+        <h5>Liste Voiture</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Libelle</th>
+                        <th scope="col">Montant</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let type of typeVoiture">
+                        <td scope="row">{{type.id}}</td>
+                        <td>{{type.libelle}}</td>
+                        <td>{{type.montant}}</td>
+                        <td>
+                            <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="btn btn-danger btn-action" data-toggle="tooltip" (click)="suppTypeV(type.id)" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert( 'Deleted ')"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
